@@ -1,5 +1,5 @@
-Moodle App
-=================
+# Moodle App
+
 
 This is the primary repository of source code for the official mobile app for Moodle.
 
@@ -11,7 +11,21 @@ This is the primary repository of source code for the official mobile app for Mo
 
 This project is tested with BrowserStack.
 
-License
--------
+## License
+
 
 [Apache 2.0](http://www.apache.org/licenses/LICENSE-2.0)
+
+ ### Fix Apache 2.0 CORS error
+ - Add the `Header add Access-Control-Allow-Origin` directive to your Apache config file `/etc/apache2/apache2.conf`
+ ```
+ <Directory /var/www/html>
+   ...
+   Header set Access-Control-Allow-Origin "*"
+   ...
+</Directory>
+ ```
+ - Then restart Apache
+ ```
+ sudo systemctl restart apache2.service
+ ```
