@@ -42,7 +42,7 @@ import { AddonBlockStarredCoursesModule } from './starredcourses/starredcourses.
 import { AddonBlockTagsModule } from './tags/tags.module';
 import { AddonBlockTimelineModule } from './timeline/timeline.module';
 import { AddonBlockTHModule } from './th/th.module';
-
+import { AddonBlockTHListModule } from './thlist/thlist.module'
 @NgModule({
     imports: [
         AddonBlockActivityModulesModule,
@@ -73,6 +73,8 @@ import { AddonBlockTHModule } from './th/th.module';
         AddonBlockTagsModule,
         AddonBlockTimelineModule,
         AddonBlockTHModule,
+        AddonBlockTHListModule,
     ],
+
 })
 export class AddonBlockModule {}

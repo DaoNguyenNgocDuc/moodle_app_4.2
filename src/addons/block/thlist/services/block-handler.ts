@@ -13,36 +13,37 @@
 // limitations under the License.
 
 import { Injectable } from '@angular/core';
-
 import { CoreBlockHandlerData } from '@features/block/services/block-delegate';
-import { CoreBlockPreRenderedComponent } from '@features/block/components/pre-rendered-block/pre-rendered-block';
+import { CoreBlockOnlyTitleComponent } from '@features/block/components/only-title-block/only-title-block';
 import { CoreBlockBaseHandler } from '@features/block/classes/base-block-handler';
-import { CoreCourseBlock } from '@features/course/services/course';
 import { makeSingleton } from '@singletons';
 
 /**
  * Block handler.
  */
 @Injectable({ providedIn: 'root' })
-export class AddonBlockTHHandlerService extends CoreBlockBaseHandler {
+export class AddonBlockTHListHandlerService extends CoreBlockBaseHandler {
 
-    name = 'AddonBlockTH';
-    blockName = 'th';
+    name = 'AddonBlockTHList';
+    blockName = 'th_list';
 
     /**
-     * Returns the data needed to render the block.
-     *
-     * @param block The block to render.
-     * @returns Data or promise resolved with the data.
+     * @inheritdoc
      */
-    getDisplayData(block: CoreCourseBlock): CoreBlockHandlerData {
+    getDisplayData(): CoreBlockHandlerData {
+
         return {
-            title: block.contents?.title || '',
-            class: 'addon-block-th',
-            component: CoreBlockPreRenderedComponent,
+            title: 'TH list',
+            class: 'addon-block-th-list',
+            component: CoreBlockOnlyTitleComponent,
+            link: 'courses/list',
+            linkParams: { mode: 'my' },
+            navOptions: {
+                preferCurrentTab: false,
+            },
         };
     }
 
 }
 
-export const AddonBlockTHHandler = makeSingleton(AddonBlockTHHandlerService);
+export const AddonBlockTHListHandler = makeSingleton(AddonBlockTHListHandlerService);
